@@ -1,0 +1,65 @@
+body{
+    font-family: sans-serif;
+    padding: 100px;
+}
+#login-area>h1{
+text-align: center;
+font-size: 45px;
+}
+
+.login{
+    margin-top: 50px;
+    box-shadow: 5px 5px 10px gray;
+    border-radius: 10px;
+    padding: 40px;
+}
+.login>input{
+    margin: 5px 0;
+}
+
+.btn a{
+    color: white;
+    text-decoration: none;
+}
+.btn a:hover{
+    color: rgb(201, 199, 197);
+}
+#transaction-area{
+    display: none;
+}
+.allfund{
+    display: flex;
+    justify-content: space-evenly
+}
+.diposit{
+    background-color: rgb(24, 0, 241);
+}
+.widthdraw{
+    background-color: rgb(245, 130, 30);
+}
+.blance{
+    background-color: rgb(71, 158, 0);
+}
+.fund{
+    text-align: center;
+    color: white;
+    box-sizing: border-box;
+    margin: 0px 20px;
+    padding: 10px 55px;
+    border-radius: 10px;
+}
+.amout-sec{
+    display: flex;
+    justify-content: space-evenly
+}
+.amount-col{
+    margin-top: 50px;
+    box-shadow: 5px 5px 10px gray;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.amount-col>input{
+margin: 10px 0px;
+width: 350px;
+}
