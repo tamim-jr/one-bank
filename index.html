@@ -102,10 +102,10 @@
             updateSpanText("total-amount", -1 * currentWithdrawNum);
         })
         //function for deposit withdraw and total value
-        function updateSpanText(id, depositNumber){
+        function updateSpanText(id, inputNumber){
             const totalCurrentBlanca = document.getElementById(id).innerText;
             const totalCurrentNum = parseFloat(totalCurrentBlanca);
-            const totalCalculationResults = depositNumber + totalCurrentNum;
+            const totalCalculationResults = inputNumber + totalCurrentNum;
             document.getElementById(id).innerText = totalCalculationResults;
         }
 
