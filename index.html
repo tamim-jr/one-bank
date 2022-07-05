@@ -27,23 +27,23 @@
     <div id="transaction-area">
         <div class="allfund">
             <div class="fund diposit">
-                <h5>Diposit</h5>
-                <h2>$300</h2>
+                <h5>Deposit</h5>
+                <h2>$ <span id="current-deposit">100</span></h2>
             </div>
             <div class="fund widthdraw">
-                <h5>Widthdraw</h5>
+                <h5>Withdraw</h5>
                 <h2>$950</h2>
             </div>
             <div class="fund blance">
-                <h5>Blance</h5>
+                <h5>Blanca</h5>
                 <h2>$1250</h2>
             </div>
         </div>
         <div class="amout-sec">
             <div class="amount-col">
                 <h4>Deposit</h4>
-                <input type="text" class="form-control" name="" id="" placeholder="Amount">
-                <button class="btn btn-success">Deposit</button>
+                <input type="text" class="form-control" name="" id="deposit-amount" placeholder="Amount">
+                <button id="deposit-btn" class="btn btn-success">Deposit</button>
             </div>
             <div class="amount-col">
                 <h4>Withdraw</h4>
@@ -58,8 +58,21 @@
             const loginArea = document.getElementById("login-area");
             loginArea.style.display = "none";
             const trans = document.getElementById("transaction-area");
-            trans.style.display = "block";
+            trans.style.display = "block";   
         })
+        const depositBtn = document.getElementById("deposit-btn");
+             depositBtn.addEventListener('click', function(){
+                const depositAmount = document.getElementById("deposit-amount").value;
+                const depositNumber = parseFloat(depositAmount);
+                console.log(depositNumber);
+
+
+                const currentDeposit = document.getElementById("current-deposit").innerText;
+                const currentNum = parseFloat(currentDeposit);
+                const totalDeposit = depositNumber + currentNum;
+
+                document.getElementById("current-deposit").innerText = totalDeposit;
+            })
     </script>
 </body>
 
