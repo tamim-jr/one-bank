@@ -28,15 +28,15 @@
         <div class="allfund">
             <div class="fund diposit">
                 <h5>Deposit</h5>
-                <h2>$ <span id="current-deposit">100</span></h2>
+                <h2>$ <span id="current-deposit">00</span></h2>
             </div>
             <div class="fund widthdraw">
                 <h5>Withdraw</h5>
-                <h2>$950</h2>
+                <h2>$ <span id="withdraw-amount">00</span></h2>
             </div>
             <div class="fund blance">
                 <h5>Blanca</h5>
-                <h2>$1250</h2>
+                <h2>$ <span id="total-amount">1250</span></h2>
             </div>
         </div>
         <div class="amout-sec">
@@ -47,32 +47,68 @@
             </div>
             <div class="amount-col">
                 <h4>Withdraw</h4>
-                <input type="text" class="form-control" name="" id="" placeholder="Amount">
-                <button class="btn btn-success">Withdraw</button>
+                <input type="text" class="form-control" name="" id="current-withdraw" placeholder="Amount">
+                <button id="withdraw-btn" class="btn btn-success">Withdraw</button>
             </div>
         </div>
     </div>
     <script>
+        //login page enter button
         const enterBtn = document.getElementById("enter-btn");
         enterBtn.addEventListener("click", function () {
             const loginArea = document.getElementById("login-area");
             loginArea.style.display = "none";
             const trans = document.getElementById("transaction-area");
-            trans.style.display = "block";   
+            trans.style.display = "block";
         })
         const depositBtn = document.getElementById("deposit-btn");
-             depositBtn.addEventListener('click', function(){
-                const depositAmount = document.getElementById("deposit-amount").value;
-                const depositNumber = parseFloat(depositAmount);
-                console.log(depositNumber);
+        depositBtn.addEventListener('click', function () {
+            const depositAmount = document.getElementById("deposit-amount").value;
+            const depositNumber = parseFloat(depositAmount);
+            //Basic code of deposit button
+            // const currentDeposit = document.getElementById("current-deposit").innerText;
+            // const currentNum = parseFloat(currentDeposit);
+            // const totalDeposit = depositNumber + currentNum;
+            // document.getElementById("current-deposit").innerText = totalDeposit;
+
+            // const totalCurrentDeposit = document.getElementById("total-amount").innerText;
+            // const totalCurrentNum = parseFloat(totalCurrentDeposit);
+            // const totalDepositResults = depositNumber + totalCurrentNum;
+            // document.getElementById("total-amount").innerText = totalDepositResults;
 
 
-                const currentDeposit = document.getElementById("current-deposit").innerText;
-                const currentNum = parseFloat(currentDeposit);
-                const totalDeposit = depositNumber + currentNum;
+            updateSpanText("current-deposit", depositNumber);
+            updateSpanText("total-amount", depositNumber);
+        })
 
-                document.getElementById("current-deposit").innerText = totalDeposit;
-            })
+    
+        const withdrawbtn = document.getElementById("withdraw-btn");
+        withdrawbtn.addEventListener('click', function () {
+            const currentWithdraw = document.getElementById("current-withdraw").value;
+            const currentWithdrawNum = parseFloat(currentWithdraw);
+            //Basic code of withdraw button
+            // const withdrawAmount = document.getElementById("withdraw-amount").innerText;
+            // const withdrawNumber = parseFloat(withdrawAmount);
+            // const totalWithdraw = currentWithdrawNum + withdrawNumber;
+            // console.log(totalWithdraw);
+            // document.getElementById("withdraw-amount").innerText = totalWithdraw;
+
+            // const totalCurrentWithdraw = document.getElementById("total-amount").innerText;
+            // const totalCurrentNum = parseFloat(totalCurrentWithdraw);
+            // const totalWithdrawResults = totalCurrentNum - currentWithdrawNum;
+            // document.getElementById("total-amount").innerText = totalWithdrawResults;
+
+            updateSpanText("withdraw-amount", currentWithdrawNum);
+            updateSpanText("total-amount", -1 * currentWithdrawNum);
+        })
+        //function for deposit withdraw and total value
+        function updateSpanText(id, depositNumber){
+            const totalCurrentBlanca = document.getElementById(id).innerText;
+            const totalCurrentNum = parseFloat(totalCurrentBlanca);
+            const totalCalculationResults = depositNumber + totalCurrentNum;
+            document.getElementById(id).innerText = totalCalculationResults;
+        }
+
     </script>
 </body>
 
