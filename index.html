@@ -65,7 +65,15 @@
         depositBtn.addEventListener('click', function () {
             const depositAmount = document.getElementById("deposit-amount").value;
             const depositNumber = parseFloat(depositAmount);
+            if (depositNumber < 0){
+                alert("Negative values are not allowed");
+            }
+            else{
+                updateSpanText("current-deposit", depositNumber);
+                updateSpanText("total-amount", depositNumber);
+            }
             //Basic code of deposit button
+
             // const currentDeposit = document.getElementById("current-deposit").innerText;
             // const currentNum = parseFloat(currentDeposit);
             // const totalDeposit = depositNumber + currentNum;
@@ -77,8 +85,6 @@
             // document.getElementById("total-amount").innerText = totalDepositResults;
 
 
-            updateSpanText("current-deposit", depositNumber);
-            updateSpanText("total-amount", depositNumber);
         })
 
     
@@ -86,6 +92,13 @@
         withdrawbtn.addEventListener('click', function () {
             const currentWithdraw = document.getElementById("current-withdraw").value;
             const currentWithdrawNum = parseFloat(currentWithdraw);
+            if (currentWithdrawNum < 0){
+                alert("Negative values are not allowed");
+            }
+            else{
+                updateSpanText("withdraw-amount", currentWithdrawNum);
+                updateSpanText("total-amount", -1 * currentWithdrawNum);
+            }
             //Basic code of withdraw button
             // const withdrawAmount = document.getElementById("withdraw-amount").innerText;
             // const withdrawNumber = parseFloat(withdrawAmount);
@@ -98,8 +111,6 @@
             // const totalWithdrawResults = totalCurrentNum - currentWithdrawNum;
             // document.getElementById("total-amount").innerText = totalWithdrawResults;
 
-            updateSpanText("withdraw-amount", currentWithdrawNum);
-            updateSpanText("total-amount", -1 * currentWithdrawNum);
         })
         //function for deposit withdraw and total value
         function updateSpanText(id, inputNumber){
