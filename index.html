@@ -69,9 +69,12 @@
                 alert("Negative values are not allowed");
             }
             else{
+                confirm("Click the OK button when you confirm it");
+                // prompt("Enter Your amount");
                 updateSpanText("current-deposit", depositNumber);
                 updateSpanText("total-amount", depositNumber);
             }
+
             //Basic code of deposit button
 
             // const currentDeposit = document.getElementById("current-deposit").innerText;
@@ -96,6 +99,7 @@
                 alert("Negative values are not allowed");
             }
             else{
+                confirm("Click the OK button when you confirm it");
                 updateSpanText("withdraw-amount", currentWithdrawNum);
                 updateSpanText("total-amount", -1 * currentWithdrawNum);
             }
